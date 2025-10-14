@@ -1,0 +1,129 @@
+.task-board-container {
+  padding: 20px;
+}
+
+.task-board-container h1 {
+  margin-bottom: 24px;
+  color: #2c3e50;
+}
+
+.task-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  min-height: calc(100vh - 200px);
+}
+
+.task-column {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.column-header h2 {
+  color: #2c3e50;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.task-count {
+  background-color: #e2e8f0;
+  color: #4a5568;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 100px;
+}
+
+.task-card {
+  background-color: white;
+  border-radius: 6px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  cursor: move;
+  user-select: none;
+}
+
+.task-card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.task-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.task-card-header h3 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1rem;
+}
+
+.priority-badge {
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.priority-badge.high {
+  background-color: #fed7d7;
+  color: #c53030;
+}
+
+.priority-badge.medium {
+  background-color: #feebc8;
+  color: #c05621;
+}
+
+.priority-badge.low {
+  background-color: #c6f6d5;
+  color: #2f855a;
+}
+
+.task-description {
+  color: #4a5568;
+  font-size: 0.9rem;
+  margin: 8px 0;
+  line-height: 1.4;
+}
+
+.task-due-date {
+  font-size: 0.8rem;
+  color: #718096;
+  margin-top: 8px;
+}
+
+/* Drag and drop visual feedback */
+.task-column.drag-over {
+  background-color: #ebf8ff;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .task-board {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .task-column {
+    margin-bottom: 16px;
+  }
+} 
