@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import com.example.dto.UserDTO;
+import com.example.entity.User;
 import com.example.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,10 +28,18 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody Map<String, String> request) {
+    public ResponseEntity<?> login(@RequestBody Map<String, String> request) {
         String username = request.get("username");
         String password = request.get("password");
-        return ResponseEntity.ok(userService.loginUser(username, password));
+        
+        User user = userService.loginUser(username, password);
+        
+        if (user != null) {
+            UserDTO userDTO = new UserDTO(user.getId(), user.getUsername(), user.getEmail());
+            return ResponseEntity.ok(userDTO);
+        } else {
+            return ResponseEntity.status(401).body("Invalid username or password");
+        }
     }
     
     @GetMapping("/test")
