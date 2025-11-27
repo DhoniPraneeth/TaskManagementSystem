@@ -39,6 +39,22 @@
   background-color: #e0e0e0;
 }
 
+/* Signup button used on the login page */
+.signup-btn {
+  display: inline-block;
+  margin-top: 8px;
+  background-color: #17a2b8;
+  color: #fff;
+  padding: 0.5rem 0.9rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.signup-btn:hover {
+  background-color: #138496;
+}
+
 .main-content {
   flex: 1;
   padding: 20px;

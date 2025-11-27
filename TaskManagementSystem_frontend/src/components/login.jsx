@@ -9,12 +9,13 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      await login(username, password);
+      const userData = await login(username, password);
       localStorage.setItem("isAuthenticated", "true");
       window.dispatchEvent(new Event("storage"));
       navigate("/");
     } catch (error) {
-      alert("Invalid credentials!");
+      const message = error?.response?.data || "Invalid credentials!";
+      alert(message);
     }
   };
 
@@ -25,7 +26,10 @@ const Login = () => {
         <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <button onClick={handleLogin}>Login</button>
-        <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
+        <div style={{ marginTop: '12px' }}>
+          <p style={{ margin: 0 }}>Don't have an account?</p>
+          <Link to="/signup" className="signup-btn">Create Account</Link>
+        </div>
       </div>
     </div>
   );
